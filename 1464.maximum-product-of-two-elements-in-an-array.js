@@ -10,9 +10,16 @@
  * @return {number}
  */
 var maxProduct = function(nums) {
-    nums = nums.sort();
-    console.log(nums);
-    return (nums[nums.length - 2] - 1) * (nums[nums.length - 1] - 1);
+    let max_1 = 0, max_2 = 0;
+    nums.forEach(num => {
+        max_1 = Math.max(max_1, num);
+    });
+    nums.splice(nums.indexOf(max_1), 1);
+    nums.forEach(num => {
+        max_2 = Math.max(max_2, num);
+    });
+
+    return (max_1 - 1) * (max_2 - 1);
 };
 // @lc code=end
 
